@@ -11,17 +11,24 @@ def encode(password):
 
 
 def decode(encoded_password):
-    pass
+    decoded = ""
+    for char in str(encoded_password):
+        # Reverse the shift of digit by 3, use modulo to wrap around
+        new_digit = (int(char) - 3) % 10
+        decoded += str(new_digit)
+    return decoded
 
 
 def main():
     while True:
-        print("""Menu
+        print(
+            """Menu
 -------------
 1. Encode
 2. Decode
 3. Quit
-""")
+"""
+        )
 
         choice = int(input("Please enter an option: "))
 
